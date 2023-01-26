@@ -1,0 +1,45 @@
+@import "../../Variables.scss";
+
+.imgSlider {
+  max-width: 100vw;
+}
+
+.imgWrapper {
+  display: grid;
+  grid-template-areas: "stack";
+  place-items: center;
+
+  & > * {
+    grid-area: stack;
+  }
+}
+
+.btnWrapper {
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1.6rem;
+}
+
+.imgBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background-color: var(--white);
+  border: none;
+}
+
+.imgBtnIcon {
+  width: 1rem;
+
+  &-left {
+    transform: translateX(-0.2rem);
+  }
+
+  &-right {
+    transform: translateX(0.2rem);
+  }
+}

@@ -1,0 +1,30 @@
+button {
+  background-color: transparent;
+  border: none;
+  appearance: none;
+}
+
+.header-wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 2.4rem 2.8rem 2.4rem;
+  align-items: center;
+}
+
+.menu-nav {
+  display: none;
+}
+
+.profile-img {
+  max-width: 2.4rem;
+}
+
+.nav-left {
+  display: flex;
+  gap: 1.6rem;
+}
+
+.nav-right {
+  display: flex;
+  gap: 2.2rem;
+}
