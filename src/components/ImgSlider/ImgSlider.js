@@ -1,4 +1,6 @@
 import styles from "./ImgSlider.module.scss";
+import leftArrow from "../../images/icon-previous.svg";
+import rightArrow from "../../images/icon-next.svg";
 
 // Below code imports all of the images form the image folder
 
@@ -11,24 +13,25 @@ function importAll(r) {
 }
 
 const images = importAll(
-  require.context("../../images", false, /\.(png|jpe?g|svg)$/)
+  require.context("../../images/shoes", false, /\.(png|jpe?g|svg)$/)
 );
-
-const leftBtnIcon = `${styles.imgBtnIcon} ${styles["imgBtnIcon-left"]}`;
-const rightBtnIcon = `${styles.imgBtnIcon} ${styles["imgBtnIcon-right"]}`;
-const leftBtn = `${styles.imgBtn} ${styles["imgBtn-left"]}`;
-const rightBtn = `${styles.imgBtn} ${styles["imgBtn-right"]}`;
 
 const ImgSlider = () => {
   return (
     <div className={styles.imgWrapper}>
       <img src={images["image-product-1.jpg"]} className={styles.imgSlider} />
       <div className={styles.btnWrapper}>
-        <button className={leftBtn}>
-          <img src={images["icon-previous.svg"]} className={leftBtnIcon} />
+        <button className={`${styles.imgBtn} ${styles["imgBtn-left"]}`}>
+          <img
+            src={leftArrow}
+            className={`${styles.imgBtnIcon} ${styles["imgBtnIcon-left"]}`}
+          />
         </button>
-        <button className={rightBtn}>
-          <img src={images["icon-next.svg"]} className={rightBtnIcon} />
+        <button className={`${styles.imgBtn} ${styles["imgBtn-right"]}`}>
+          <img
+            src={rightArrow}
+            className={`${styles.imgBtnIcon} ${styles["imgBtnIcon-right"]}`}
+          />
         </button>
       </div>
     </div>
