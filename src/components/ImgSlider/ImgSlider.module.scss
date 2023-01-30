@@ -46,6 +46,10 @@
   }
 }
 
+.sm-img-wrapper {
+  display: none;
+}
+
 @media (min-width: 33.5em) {
   .imgSlider {
     width: 90vw;
@@ -60,5 +64,32 @@
 @media (min-width: 43.75em) {
   .imgSlider {
     height: 45rem;
+  }
+}
+
+@media (min-width: 56.25em) {
+  .sm-img-wrapper {
+    display: flex;
+    gap: 3.1rem;
+  }
+
+  .sm-img {
+    max-width: 8.8rem;
+    border-radius: 1rem;
+  }
+
+  .imgSlider {
+    width: 44.5rem;
+    border-radius: 1.5rem;
+  }
+
+  .btnWrapper {
+    display: none;
+  }
+
+  .images-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
   }
 }

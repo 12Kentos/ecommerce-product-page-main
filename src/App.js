@@ -6,14 +6,16 @@ import SneakersInfo from "./components/Sneakers/SneakersInfo";
 
 function App() {
   return (
-    <>
+    <div className={styles.testing}>
       <Header />
-      <main>
+      <main className={styles.main}>
         <ImgSlider />
-        <SneakersInfo />
-        <AddToCart />
+        <div>
+          <SneakersInfo />
+          <AddToCart />
+        </div>
       </main>
-    </>
+    </div>
   );
 }
 

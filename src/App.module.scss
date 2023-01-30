@@ -1,0 +1,13 @@
+@media (min-width: 56.25em) {
+  .main {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    place-items: center;
+    margin-top: 12.5rem;
+  }
+
+  .testing {
+    margin: auto auto;
+    max-width: 90vw;
+  }
+}

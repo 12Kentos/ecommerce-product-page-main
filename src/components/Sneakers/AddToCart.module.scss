@@ -74,3 +74,20 @@
     margin-top: 2.4rem;
   }
 }
+
+@media (min-width: 56.25em) {
+  .wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+    max-width: 70%;
+  }
+
+  .input-wrapper {
+    width: 50%;
+  }
+
+  .number-input {
+    width: 50%;
+  }
+}

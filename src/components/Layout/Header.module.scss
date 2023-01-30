@@ -13,6 +13,42 @@ button {
 
 .menu-nav {
   display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--white);
+  width: 66%;
+  height: 100vh;
+  z-index: 10;
+  padding: 2.5rem 0 0 2.5rem;
+}
+
+.nav-close {
+  margin-bottom: 3rem;
+}
+
+.menu-nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.menu-nav-item {
+  &:link,
+  &:visited {
+    text-decoration: none;
+    color: var(--text-secondary-clr);
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 2.6rem;
+  }
+
+  &:hover,
+  &:active {
+    color: var(--text-primary-clr);
+  }
 }
 
 .profile-img {
@@ -27,4 +63,47 @@ button {
 .nav-right {
   display: flex;
   gap: 2.2rem;
+}
+
+.active {
+  display: block;
+}
+
+@media (min-width: 56.25em) {
+  .header-wrapper {
+    max-width: 95%;
+    margin: auto auto;
+  }
+
+  .menu-nav {
+    display: flex;
+    margin-left: 8rem;
+    position: revert;
+    top: revert;
+    left: revert;
+    background-color: revert;
+    width: revert;
+    height: revert;
+    z-index: revert;
+    padding: 0;
+  }
+
+  .menu-nav-list {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 3.2rem;
+  }
+
+  .nav-close {
+    display: none;
+  }
+
+  .nav-open {
+    display: none;
+  }
+
+  .profile-img {
+    max-width: 5rem;
+  }
 }
