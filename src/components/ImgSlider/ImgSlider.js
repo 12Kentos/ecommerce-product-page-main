@@ -17,6 +17,8 @@ const images = importAll(
 );
 
 const ImgSlider = () => {
+  const imgClassList = `${styles["sm-img"]} ${styles.active}`;
+
   return (
     <div className={styles["images-wrapper"]}>
       <div className={styles.imgWrapper}>
@@ -37,7 +39,7 @@ const ImgSlider = () => {
         </div>
       </div>
       <div className={styles["sm-img-wrapper"]}>
-        <img src={images["image-product-1.jpg"]} className={styles["sm-img"]} />
+        <img src={images["image-product-1.jpg"]} className={imgClassList} />
         <img src={images["image-product-2.jpg"]} className={styles["sm-img"]} />
         <img src={images["image-product-3.jpg"]} className={styles["sm-img"]} />
         <img src={images["image-product-4.jpg"]} className={styles["sm-img"]} />

@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 import styles from "./Header.module.scss";
 import hamburgerButton from "../../images/icon-menu.svg";
@@ -8,15 +8,13 @@ import cartButton from "../../images/icon-cart.svg";
 import profileImg from "../../images/image-avatar.png";
 
 const Header = (props) => {
-  const navRef = useRef();
+  const [navOpen, setNavOpen] = useState(false);
 
   const toggleNav = () => {
-    console.log("Clicked");
-    navRef.current.classList.toggle("Header_active__P-Otb");
-    console.log(navRef.current.classList);
+    setNavOpen(!navOpen);
   };
 
-  const test = `${styles["menu-nav"]} ${styles.active}`;
+  const navClassList = `${styles["menu-nav"]} ${navOpen ? styles.active : ""}`;
 
   return (
     <header className={styles["header-wrapper"]}>
@@ -31,7 +29,7 @@ const Header = (props) => {
             className={styles["company-logo"]}
           />
         </a>
-        <nav className={styles["menu-nav"]} ref={navRef}>
+        <nav className={navClassList}>
           <ul className={styles["menu-nav-list"]}>
             <button className={styles["nav-close"]} onClick={toggleNav}>
               <img src={closeButton} alt="A button that closes the nav bar" />
@@ -65,8 +63,9 @@ const Header = (props) => {
         </nav>
       </div>
       <div className={styles["nav-right"]}>
-        <button>
-          <img src={cartButton} alt="A cart button" />
+        <button className={styles.cart}>
+          <div className={styles["cart-button"]} alt="A cart button"></div>
+          {/* <img src={cartButton} alt="A cart button" /> */}
         </button>
         <img
           src={profileImg}
