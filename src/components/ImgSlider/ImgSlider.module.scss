@@ -1,5 +1,11 @@
 @import "../../Variables.scss";
 
+.images-wrapper {
+  display: grid;
+  place-items: center;
+  gap: 2rem;
+}
+
 .imgSlider {
   width: 100vw;
   height: 30rem;
@@ -51,7 +57,55 @@
 }
 
 .sm-img {
+  max-width: 8.8rem;
+  border-radius: 1rem;
   border: 2px solid transparent;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.5;
+  }
+}
+
+.color-swatches-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--text-primary-clr);
+}
+
+.shoe-color {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  &-standard {
+    background-image: url(../../images/shoes/image-product-1-thumbnail.jpg);
+  }
+
+  &-blue {
+    background-image: url(../../images/shoes/image-product-1-thumbnail-blue.jpg);
+  }
+
+  &-green {
+    background-image: url(../../images/shoes/image-product-1-thumbnail-green.jpg);
+  }
+
+  &-red {
+    background-image: url(../../images/shoes/image-product-1-thumbnail-red.jpg);
+  }
+
+  &-gray {
+    background-image: url(../../images/shoes/image-product-1-thumbnail-gray.jpg);
+  }
 
   &:hover {
     cursor: pointer;
@@ -73,6 +127,15 @@
   .btnWrapper {
     padding: 0 5.6rem;
   }
+
+  .color-swatches-wrapper {
+    gap: 2rem;
+  }
+
+  .shoe-color {
+    width: 5rem;
+    height: 5rem;
+  }
 }
 
 @media (min-width: 43.75em) {
@@ -85,11 +148,6 @@
   .sm-img-wrapper {
     display: flex;
     gap: 3.1rem;
-  }
-
-  .sm-img {
-    max-width: 8.8rem;
-    border-radius: 1rem;
   }
 
   .imgSlider {

@@ -6,7 +6,7 @@ const AddToCart = () => {
   return (
     <form className={styles.wrapper}>
       <div className={styles["input-wrapper"]}>
-        <button>
+        <button className={styles["number-btn"]}>
           <img src={minusBtn} alt="Minus button" />
         </button>
         <input
@@ -16,7 +16,7 @@ const AddToCart = () => {
           defaultValue="1"
           className={styles["number-input"]}
         />
-        <button>
+        <button className={styles["number-btn"]}>
           <img src={plusBtn} alt="Plus button" />
         </button>
       </div>

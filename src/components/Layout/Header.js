@@ -6,6 +6,7 @@ import closeButton from "../../images/icon-close.svg";
 import companyLogo from "../../images/logo.svg";
 import cartButton from "../../images/icon-cart.svg";
 import profileImg from "../../images/image-avatar.png";
+import Cart from "../Cart/Cart";
 
 const Header = (props) => {
   const [navOpen, setNavOpen] = useState(false);
@@ -65,8 +66,8 @@ const Header = (props) => {
       <div className={styles["nav-right"]}>
         <button className={styles.cart}>
           <div className={styles["cart-button"]} alt="A cart button"></div>
-          {/* <img src={cartButton} alt="A cart button" /> */}
         </button>
+        <Cart />
         <img
           src={profileImg}
           alt="Profile picture"

@@ -40,6 +40,10 @@
   height: 5.6rem;
   border-radius: 1rem;
   box-shadow: 0 1.5rem 3rem var(--primary-clr-btn-shadow);
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .add-to-crt-text {
@@ -62,6 +66,10 @@
   mask-repeat: no-repeat;
   -webkit-mask-repeat: no-repeat;
   margin-right: 1.5rem;
+}
+
+.number-btn:hover {
+  cursor: pointer;
 }
 
 @media (min-width: 33.5em) {

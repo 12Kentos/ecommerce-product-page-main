@@ -6,7 +6,7 @@ import SneakersInfo from "./components/Sneakers/SneakersInfo";
 
 function App() {
   return (
-    <div className={styles.testing}>
+    <div className={styles.wrapper}>
       <Header />
       <main className={styles.main}>
         <ImgSlider />

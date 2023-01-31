@@ -44,6 +44,24 @@ const ImgSlider = () => {
         <img src={images["image-product-3.jpg"]} className={styles["sm-img"]} />
         <img src={images["image-product-4.jpg"]} className={styles["sm-img"]} />
       </div>
+      <div className={styles["color-swatches-wrapper"]}>
+        <h2>Color:</h2>
+        <button
+          className={`${styles["shoe-color"]} ${styles["shoe-color-standard"]} ${styles.active}`}
+        ></button>
+        <button
+          className={`${styles["shoe-color"]} ${styles["shoe-color-blue"]}`}
+        ></button>
+        <button
+          className={`${styles["shoe-color"]} ${styles["shoe-color-green"]}`}
+        ></button>
+        <button
+          className={`${styles["shoe-color"]} ${styles["shoe-color-red"]}`}
+        ></button>
+        <button
+          className={`${styles["shoe-color"]} ${styles["shoe-color-gray"]}`}
+        ></button>
+      </div>
     </div>
   );
 };
