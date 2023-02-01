@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useReducer, useState } from "react";
 
 import CartContext from "./cart-context";
 
@@ -6,6 +6,8 @@ const defaultCartState = {
   items: [],
   totalAmount: 0,
 };
+
+const defaultItemTypeState = "";
 
 const cartReducer = (state, action) => {
   if (action.type === "ADD") {
@@ -19,11 +21,26 @@ const cartReducer = (state, action) => {
   return defaultCartState;
 };
 
+const itemTypeReducer = (state, action) => {
+  if (action.type === "ITEM_COLOR_CHANGE") {
+    const updatedColor = action.itemColor;
+    return updatedColor;
+  }
+  return defaultItemTypeState;
+};
+
 const CartProvider = (props) => {
   const [cartState, dispatchCartAction] = useReducer(
     cartReducer,
     defaultCartState
   );
+
+  const [itemTypeState, dispatchItemTypeAction] = useReducer(
+    itemTypeReducer,
+    defaultItemTypeState
+  );
+
+  const [itemType, setItemType] = useState("");
 
   const addItemToCartHandler = (item) => {
     dispatchCartAction({ type: "ADD", item: item });
@@ -33,9 +50,17 @@ const CartProvider = (props) => {
     dispatchCartAction({ type: "REMOVE", id: id });
   };
 
+  const changeItemTypeHandler = (itemColor) => {
+    dispatchItemTypeAction({ type: "ITEM_COLOR_CHANGE", itemColor: itemColor });
+    console.log(itemType);
+    // setItemType(itemType);
+  };
+
   const cartContext = {
+    itemType: itemTypeState,
     items: cartState.items,
     totalAmount: cartState.totalAmount,
+    changeItemType: changeItemTypeHandler,
     addItem: addItemToCartHandler,
     removeItem: removeItemFromCartHandler,
   };

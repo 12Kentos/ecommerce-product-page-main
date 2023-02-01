@@ -1,0 +1,40 @@
+.shoe-color {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  &-standard {
+    background-image: url(../../images/shoes/image-product-1-thumbnail.jpg);
+  }
+
+  &-blue {
+    background-image: url(../../images/shoes/image-product-1-thumbnail-blue.jpg);
+  }
+
+  &-green {
+    background-image: url(../../images/shoes/image-product-1-thumbnail-green.jpg);
+  }
+
+  &-red {
+    background-image: url(../../images/shoes/image-product-1-thumbnail-red.jpg);
+  }
+
+  &-gray {
+    background-image: url(../../images/shoes/image-product-1-thumbnail-gray.jpg);
+  }
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.5;
+  }
+}
+
+@media (min-width: 33.5em) {
+
+  .shoe-color {
+    width: 5rem;
+    height: 5rem;
+  }
+}

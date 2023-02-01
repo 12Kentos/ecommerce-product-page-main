@@ -1,6 +1,10 @@
+import { useContext } from "react";
+
 import styles from "./ImgSlider.module.scss";
 import leftArrow from "../../images/icon-previous.svg";
 import rightArrow from "../../images/icon-next.svg";
+import CartContext from "../../store/cart-context";
+import ImgButton from "./ImgButton";
 
 // Below code imports all of the images form the image folder
 
@@ -17,12 +21,37 @@ const images = importAll(
 );
 
 const ImgSlider = () => {
+  const cartCtx = useContext(CartContext);
+
   const imgClassList = `${styles["sm-img"]} ${styles.active}`;
+
+  const changeColor = () => {
+    cartCtx.changeItemType("");
+  };
+
+  const changeColorBlue = () => {
+    cartCtx.changeItemType("-blue");
+  };
+
+  const changeColorGreen = () => {
+    cartCtx.changeItemType("-green");
+  };
+
+  const changeColorRed = () => {
+    cartCtx.changeItemType("-red");
+  };
+
+  const changeColorGray = () => {
+    cartCtx.changeItemType("-gray");
+  };
 
   return (
     <div className={styles["images-wrapper"]}>
       <div className={styles.imgWrapper}>
-        <img src={images["image-product-1.jpg"]} className={styles.imgSlider} />
+        <img
+          src={images[`image-product-1${cartCtx.itemType}.jpg`]}
+          className={styles.imgSlider}
+        />
         <div className={styles.btnWrapper}>
           <button className={`${styles.imgBtn} ${styles["imgBtn-left"]}`}>
             <img
@@ -39,28 +68,50 @@ const ImgSlider = () => {
         </div>
       </div>
       <div className={styles["sm-img-wrapper"]}>
-        <img src={images["image-product-1.jpg"]} className={imgClassList} />
-        <img src={images["image-product-2.jpg"]} className={styles["sm-img"]} />
-        <img src={images["image-product-3.jpg"]} className={styles["sm-img"]} />
-        <img src={images["image-product-4.jpg"]} className={styles["sm-img"]} />
+        <img
+          src={images[`image-product-1${cartCtx.itemType}.jpg`]}
+          className={imgClassList}
+        />
+        <img
+          src={images[`image-product-2${cartCtx.itemType}.jpg`]}
+          className={styles["sm-img"]}
+        />
+        <img
+          src={images[`image-product-3${cartCtx.itemType}.jpg`]}
+          className={styles["sm-img"]}
+        />
+        <img
+          src={images[`image-product-4${cartCtx.itemType}.jpg`]}
+          className={styles["sm-img"]}
+        />
       </div>
       <div className={styles["color-swatches-wrapper"]}>
         <h2>Color:</h2>
-        <button
+        <ImgButton
           className={`${styles["shoe-color"]} ${styles["shoe-color-standard"]} ${styles.active}`}
-        ></button>
-        <button
+          onClick={changeColor}
+          type={"standard"}
+        ></ImgButton>
+        <ImgButton
           className={`${styles["shoe-color"]} ${styles["shoe-color-blue"]}`}
-        ></button>
-        <button
+          onClick={changeColorBlue}
+          type={"blue"}
+        ></ImgButton>
+        <ImgButton
           className={`${styles["shoe-color"]} ${styles["shoe-color-green"]}`}
-        ></button>
-        <button
+          onClick={changeColorGreen}
+          type={"green"}
+        ></ImgButton>
+        <ImgButton
           className={`${styles["shoe-color"]} ${styles["shoe-color-red"]}`}
-        ></button>
-        <button
+          onClick={changeColorRed}
+          type={"red"}
+        ></ImgButton>
+        <ImgButton
           className={`${styles["shoe-color"]} ${styles["shoe-color-gray"]}`}
-        ></button>
+          onClick={changeColorGray}
+          type={"gray"}
+        ></ImgButton>
       </div>
     </div>
   );
