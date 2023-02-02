@@ -7,8 +7,6 @@ const defaultCartState = {
   totalAmount: 0,
 };
 
-const defaultItemTypeState = { color: "" };
-
 const cartReducer = (state, action) => {
   if (action.type === "ADD") {
     const updatedItems = state.items.concat(action.item);
@@ -20,6 +18,8 @@ const cartReducer = (state, action) => {
   }
   return defaultCartState;
 };
+
+const defaultItemTypeState = { color: "" };
 
 const itemTypeReducer = (state, action) => {
   console.log(action.itemColor);
@@ -45,7 +45,6 @@ const CartProvider = (props) => {
     defaultItemTypeState
   );
 
-  // const [itemType, setItemType] = useState("");
 
   const addItemToCartHandler = (item) => {
     dispatchCartAction({ type: "ADD", item: item });
@@ -57,9 +56,6 @@ const CartProvider = (props) => {
 
   const changeItemTypeHandler = (itemColor) => {
     dispatchItemTypeAction({ type: "ITEM_COLOR_CHANGE", itemColor: itemColor });
-    console.log(itemTypeState.color);
-    // console.log(itemType);
-    // setItemType(itemType);
   };
 
   const cartContext = {
