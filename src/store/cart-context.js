@@ -7,6 +7,12 @@ const CartContext = React.createContext({
   removeItem: (id) => {},
   changeItemType: (itemType) => {},
   itemType: "",
+  imgNumber: "",
+  addImgNumber: (number) => {},
+  subImgNumber: (number) => {},
+  changeNumber: (number) => {},
+  ligthBoxActive: false,
+  changeLightBoxActive: () => {},
 });
 
 export default CartContext;

@@ -22,8 +22,6 @@ const cartReducer = (state, action) => {
 const defaultItemTypeState = { color: "" };
 
 const itemTypeReducer = (state, action) => {
-  console.log(action.itemColor);
-
   if (action.type === "ITEM_COLOR_CHANGE") {
     if (action.itemColor === "-standard") {
       return { color: "" };
@@ -32,6 +30,30 @@ const itemTypeReducer = (state, action) => {
     return { color: updatedColor };
   }
   return defaultItemTypeState;
+};
+
+const defaultImgNumberState = { number: "1" };
+
+const imgNumberReducer = (state, action) => {
+  if (action.type === "CHANGE") {
+    return { number: action.number };
+  }
+
+  if (action.type === "ADD") {
+    if (+action.number >= 4) {
+      return { number: action.number.toString() };
+    } else {
+      return { number: (+state.number + 1).toString() };
+    }
+  }
+  if (action.type === "SUBTRACT") {
+    if (+action.number <= 1) {
+      return { number: action.number.toString() };
+    } else {
+      return { number: (+state.number - 1).toString() };
+    }
+  }
+  return defaultImgNumberState;
 };
 
 const CartProvider = (props) => {
@@ -45,6 +67,30 @@ const CartProvider = (props) => {
     defaultItemTypeState
   );
 
+  const [imgNumberState, dispatchImgNumberAction] = useReducer(
+    imgNumberReducer,
+    defaultImgNumberState
+  );
+
+  const [isLightBoxActive, setIsLightBoxActive] = useState(false);
+  {
+  }
+
+  const changeImgNumber = (number) => {
+    dispatchImgNumberAction({ type: "CHANGE", number: number });
+  };
+
+  const lightBoxActiveHandler = () => {
+    setIsLightBoxActive(!isLightBoxActive);
+  };
+
+  const changeImgAddition = (number) => {
+    dispatchImgNumberAction({ type: "ADD", number: number });
+  };
+
+  const changeImgSubtraction = (number) => {
+    dispatchImgNumberAction({ type: "SUBTRACT", number: number });
+  };
 
   const addItemToCartHandler = (item) => {
     dispatchCartAction({ type: "ADD", item: item });
@@ -65,6 +111,12 @@ const CartProvider = (props) => {
     changeItemType: changeItemTypeHandler,
     addItem: addItemToCartHandler,
     removeItem: removeItemFromCartHandler,
+    imgNumber: imgNumberState.number,
+    addImgNumber: changeImgAddition,
+    subImgNumber: changeImgSubtraction,
+    changeNumber: changeImgNumber,
+    ligthBoxActive: isLightBoxActive,
+    changeLightBoxActive: lightBoxActiveHandler,
   };
 
   return (
