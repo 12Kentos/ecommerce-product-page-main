@@ -7,7 +7,7 @@ const ImgButton = (props) => {
   const cartCtx = useContext(CartContext);
 
   const changeItemColor = () => {
-    cartCtx.changeItemType(props.type);
+    cartCtx.changeItemType(`-${props.type}`);
   };
 
   return (
@@ -19,7 +19,5 @@ const ImgButton = (props) => {
     ></button>
   );
 };
-
-// className={`${styles["shoe-color"]} ${styles["shoe-color-standard"]} ${styles.active}`}
 
 export default ImgButton;

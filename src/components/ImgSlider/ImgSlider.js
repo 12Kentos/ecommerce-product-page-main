@@ -25,26 +25,6 @@ const ImgSlider = () => {
 
   const imgClassList = `${styles["sm-img"]} ${styles.active}`;
 
-  const changeColor = () => {
-    cartCtx.changeItemType("");
-  };
-
-  const changeColorBlue = () => {
-    cartCtx.changeItemType("-blue");
-  };
-
-  const changeColorGreen = () => {
-    cartCtx.changeItemType("-green");
-  };
-
-  const changeColorRed = () => {
-    cartCtx.changeItemType("-red");
-  };
-
-  const changeColorGray = () => {
-    cartCtx.changeItemType("-gray");
-  };
-
   return (
     <div className={styles["images-wrapper"]}>
       <div className={styles.imgWrapper}>
@@ -89,27 +69,22 @@ const ImgSlider = () => {
         <h2>Color:</h2>
         <ImgButton
           className={`${styles["shoe-color"]} ${styles["shoe-color-standard"]} ${styles.active}`}
-          onClick={changeColor}
           type={"standard"}
         ></ImgButton>
         <ImgButton
           className={`${styles["shoe-color"]} ${styles["shoe-color-blue"]}`}
-          onClick={changeColorBlue}
           type={"blue"}
         ></ImgButton>
         <ImgButton
           className={`${styles["shoe-color"]} ${styles["shoe-color-green"]}`}
-          onClick={changeColorGreen}
           type={"green"}
         ></ImgButton>
         <ImgButton
           className={`${styles["shoe-color"]} ${styles["shoe-color-red"]}`}
-          onClick={changeColorRed}
           type={"red"}
         ></ImgButton>
         <ImgButton
           className={`${styles["shoe-color"]} ${styles["shoe-color-gray"]}`}
-          onClick={changeColorGray}
           type={"gray"}
         ></ImgButton>
       </div>
