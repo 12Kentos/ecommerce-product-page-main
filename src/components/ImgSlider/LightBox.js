@@ -53,7 +53,7 @@ const LightBox = (props) => {
   const lightBoxImages = props.clickable ? (
     <img
       src={images[`image-product-${cartCtx.imgNumber}${cartCtx.itemType}.jpg`]}
-      className={styles.imgSlider}
+      className={`${styles.imgSlider} ${styles["img-clickable"]}`}
       onClick={changeLightBox}
     />
   ) : (

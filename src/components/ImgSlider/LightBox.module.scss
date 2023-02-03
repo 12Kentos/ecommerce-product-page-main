@@ -62,6 +62,12 @@
   }
 }
 
+.img-clickable {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 .active {
   border: 2px solid var(--primary-clr);
   opacity: 0.5;

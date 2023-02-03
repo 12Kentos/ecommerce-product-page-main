@@ -30,7 +30,7 @@ const CartItem = (props) => {
             ).toFixed(2)}`}</span>
           </p>
         </div>
-        <button onClick={props.onRemove}>
+        <button onClick={props.onRemove} className={styles.trash}>
           <img src={deleteIcon} />
         </button>
       </div>
