@@ -13,6 +13,8 @@ const CartContext = React.createContext({
   changeNumber: (number) => {},
   ligthBoxActive: false,
   changeLightBoxActive: () => {},
+  inputAmount: 1,
+  changeInputAmount: (number) => {},
 });
 
 export default CartContext;

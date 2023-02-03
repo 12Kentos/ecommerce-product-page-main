@@ -76,6 +76,8 @@ const CartProvider = (props) => {
   {
   }
 
+  const [inputAmount, setInputAmount] = useState(1);
+
   const changeImgNumber = (number) => {
     dispatchImgNumberAction({ type: "CHANGE", number: number });
   };
@@ -104,6 +106,15 @@ const CartProvider = (props) => {
     dispatchItemTypeAction({ type: "ITEM_COLOR_CHANGE", itemColor: itemColor });
   };
 
+  const changeInputAmountHandler = (number) => {
+    setInputAmount((prevAmount) => {
+      if (prevAmount + number < 1) {
+        return prevAmount;
+      }
+      return prevAmount + number;
+    });
+  };
+
   const cartContext = {
     itemType: itemTypeState.color,
     items: cartState.items,
@@ -117,6 +128,8 @@ const CartProvider = (props) => {
     changeNumber: changeImgNumber,
     ligthBoxActive: isLightBoxActive,
     changeLightBoxActive: lightBoxActiveHandler,
+    inputAmount: inputAmount,
+    changeInputAmount: changeInputAmountHandler,
   };
 
   return (

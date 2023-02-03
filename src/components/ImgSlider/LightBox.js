@@ -50,16 +50,23 @@ const LightBox = (props) => {
     cartCtx.changeLightBoxActive();
   };
 
+  const lightBoxImages = props.clickable ? (
+    <img
+      src={images[`image-product-${cartCtx.imgNumber}${cartCtx.itemType}.jpg`]}
+      className={styles.imgSlider}
+      onClick={changeLightBox}
+    />
+  ) : (
+    <img
+      src={images[`image-product-${cartCtx.imgNumber}${cartCtx.itemType}.jpg`]}
+      className={styles.imgSlider}
+    />
+  );
+
   return (
     <div className={props.className}>
       <div className={styles.imgWrapper}>
-        <img
-          src={
-            images[`image-product-${cartCtx.imgNumber}${cartCtx.itemType}.jpg`]
-          }
-          className={styles.imgSlider}
-          onClick={changeLightBox}
-        />
+        {lightBoxImages}
         <button>
           <div
             className={styles["light-box-close"]}

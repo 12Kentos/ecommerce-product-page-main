@@ -10,8 +10,10 @@ const ImgSlider = () => {
 
   return (
     <div className={styles["images-wrapper"]}>
-      <LightBox />
-      {cartCtx.ligthBoxActive && <LightBox className={styles["light-box"]} />}
+      <LightBox clickable={true} />
+      {cartCtx.ligthBoxActive && (
+        <LightBox className={styles["light-box"]} clickable={false} />
+      )}
       {cartCtx.ligthBoxActive && (
         <div className={styles["light-box-background"]}></div>
       )}

@@ -2,21 +2,26 @@ import { useContext } from "react";
 
 import styles from "./Cart.module.scss";
 import CartContext from "../../store/cart-context";
+import CartItem from "./CartItem";
 
 const Cart = (props) => {
   const cartCtx = useContext(CartContext);
 
+  const hasItems = cartCtx.items.length > 0;
+
+  const cartItemRemoveHandler = (id) => {};
+
   const cartItems = (
     <ul className={styles.items}>
-      {[
-        {
-          id: "standard",
-          name: "Fall Limited Edition Sneakers",
-          amount: 3,
-          price: 125.0,
-        },
-      ].map((item) => (
-        <li>{item.name}</li>
+      {cartCtx.items.map((item) => (
+        <CartItem
+          key={item.type}
+          name={item.name}
+          type={item.type}
+          price={item.price}
+          amount={item.amount}
+          onRemove={cartItemRemoveHandler.bind(null, item.type)}
+        />
       ))}
     </ul>
   );
@@ -29,11 +34,13 @@ const Cart = (props) => {
           2
         )}`}</p>
       </div>
-      {/* <p className={styles.empty}>Your cart is empty</p> */}
-      <div className={styles["items-btn-wrapper"]}>
-        <div className={styles["items-wrapper"]}>{cartItems}</div>
-        <button className={styles.checkout}>Checkout</button>
-      </div>
+      {!hasItems && <p className={styles.empty}>Your cart is empty</p>}
+      {hasItems && (
+        <div className={styles["items-btn-wrapper"]}>
+          <div className={styles["items-wrapper"]}>{cartItems}</div>
+          <button className={styles.checkout}>Checkout</button>
+        </div>
+      )}
     </div>
   );
 };
