@@ -10,5 +10,5 @@ This project is a hypothetical product page for an ecommerce site. It was built 
 
 ## Built with
 
-[React](https://react.dev/)
-[Sass](https://sass-lang.com/)
+- [React](https://react.dev/)
+- [Sass](https://sass-lang.com/)
